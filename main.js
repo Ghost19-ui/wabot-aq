@@ -43,6 +43,8 @@ if (opts['server']) {
   app.listen(PORT, () => console.log('App listened on port', PORT))
 }
 global.conn = new WAConnection()
+conn.version = [2, 2119, 6]
+conn.browserDescription = ['I-N-D-R-O--K-O-C-A-K','javascript','whatsapp']
 let authFile = `${opts._[0] || 'session'}.data.json`
 if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
 if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
