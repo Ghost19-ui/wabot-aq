@@ -240,6 +240,8 @@ module.exports = {
         console.log(m, m.quoted, e)
       }
     }
+await this.chatRead(m.chat)
+  await this.updatePresence(m.chat, Presence.available)
   },
   async welcome({ m, participants }) {
     let chat = global.DATABASE._data.chats[m.key.remoteJid]
